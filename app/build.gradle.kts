@@ -46,6 +46,7 @@ android {
 dependencies {
     // Compose BOM desde catálogo
     implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.compose.ui.text)
     androidTestImplementation(platform(libs.androidx.compose.bom))
 
     implementation(libs.androidx.activity.compose)
@@ -53,6 +54,9 @@ dependencies {
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.tooling.preview)
     debugImplementation(libs.androidx.ui.tooling)
+
+    implementation(libs.androidx.navigation.compose)
+
 
     implementation(libs.androidx.core.ktx)
 

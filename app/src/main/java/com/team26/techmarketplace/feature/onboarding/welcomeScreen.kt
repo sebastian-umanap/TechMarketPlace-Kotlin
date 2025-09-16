@@ -25,12 +25,11 @@ import com.team26.techmarketplace.core.designsystem.Dimens
 import com.team26.techmarketplace.core.designsystem.GreenDark
 import com.team26.techmarketplace.core.designsystem.OffWhite
 
+// feature/onboarding/WelcomeScreen.kt
 @Composable
-fun WelcomeScreen() {
+fun WelcomeScreen(onContinue: () -> Unit) {  // <-- NUEVO parámetro
     Surface(modifier = Modifier.fillMaxSize(), color = GreenDark) {
         Column(modifier = Modifier.fillMaxSize()) {
-
-            // Imagen: 50% del alto, ancho completo
             Image(
                 painter = painterResource(R.drawable.welcome_photo),
                 contentDescription = null,
@@ -42,26 +41,14 @@ fun WelcomeScreen() {
             )
 
             Spacer(Modifier.height(12.dp))
-
-            // Dots
-            OnboardingIndicator(
-                total = 3,
-                selectedIndex = 1,
-                modifier = Modifier.align(Alignment.CenterHorizontally)
-            )
-
+            OnboardingIndicator(total = 3, selectedIndex = 1, modifier = Modifier.align(Alignment.CenterHorizontally))
             Spacer(Modifier.height(16.dp))
 
-            // ⬇️ Bloque de textos centrado y ligeramente más abajo
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .weight(1f)
-            ) {
+            Box(Modifier.fillMaxWidth().weight(1f)) {
                 Column(
                     modifier = Modifier
                         .align(Alignment.Center)
-                        .offset(y = 20.dp) // mueve "un poco más abajo"
+                        .offset(y = 20.dp)
                         .padding(horizontal = 24.dp),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
@@ -87,7 +74,7 @@ fun WelcomeScreen() {
             }
 
             Button(
-                onClick = { /* UI only */ },
+                onClick = onContinue, // <-- navega
                 shape = RoundedCornerShape(28.dp),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = OffWhite,
@@ -100,7 +87,6 @@ fun WelcomeScreen() {
             ) {
                 Text("Continue", fontSize = 16.sp, fontWeight = FontWeight.SemiBold)
             }
-
             Spacer(Modifier.windowInsetsBottomHeight(WindowInsets.navigationBars))
         }
     }
