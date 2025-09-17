@@ -1,6 +1,7 @@
 // feature/auth/LoginScreen.kt
 package com.team26.techmarketplace.feature.auth
 
+import android.R.attr.onClick
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable   // <-- NUEVO
 import androidx.compose.foundation.layout.*
@@ -20,7 +21,8 @@ import com.team26.techmarketplace.core.designsystem.GreenDark
 @Composable
 fun LoginScreen(
     onBack: () -> Unit = {},
-    onRegister: () -> Unit = {}        // <- úsalo abajo
+    onRegister: () -> Unit = {},
+    onLogin: () -> Unit = {}        // <- úsalo abajo
 ) {
     Surface(modifier = Modifier.fillMaxSize(), color = Color(0xFFF2F2F2)) {
         Card(
@@ -86,7 +88,7 @@ fun LoginScreen(
                         Spacer(Modifier.height(18.dp))
 
                         Button(
-                            onClick = { /* TODO */ },
+                            onClick = {onLogin()    },
                             shape = RoundedCornerShape(28.dp),
                             colors = ButtonDefaults.buttonColors(
                                 containerColor = GreenDark,
@@ -123,7 +125,7 @@ fun LoginScreen(
                         ) {
                             SocialButton(label = "f", modifier = Modifier.weight(1f))
                             SocialButton(label = "G", modifier = Modifier.weight(1f))
-                            SocialButton(label = "A", modifier = Modifier.weight(1f))
+                            SocialButton(label = "", modifier = Modifier.weight(1f))
                         }
                     }
                 }

@@ -47,6 +47,7 @@ dependencies {
     // Compose BOM desde catálogo
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui.text)
+    implementation(libs.androidx.foundation)
     androidTestImplementation(platform(libs.androidx.compose.bom))
 
     implementation(libs.androidx.activity.compose)
@@ -64,5 +65,9 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.material.v1120)
+
+    implementation(libs.androidx.compose.foundation)           // LazyVerticalGrid
+    implementation(libs.androidx.compose.material.icons.extended) // íconos
+
 
 }
