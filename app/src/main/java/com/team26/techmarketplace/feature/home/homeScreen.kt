@@ -33,7 +33,7 @@ private val BottomBarHeight = 84.dp
 fun HomeScreen(
     onNavigateBottom: (BottomItem) -> Unit
 ) {
-    // espacio para gestos + altura de barra
+
     val bottomInset = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
     val barSpace = BottomBarHeight + bottomInset
 
@@ -42,7 +42,7 @@ fun HomeScreen(
             .fillMaxSize()
             .background(GreenDark)
     ) {
-        // -------- Contenido (hoja blanca) --------
+
         Column(Modifier.fillMaxSize()) {
             Surface(
                 color = Color.White,
@@ -59,7 +59,6 @@ fun HomeScreen(
                 ) {
                     Spacer(Modifier.windowInsetsTopHeight(WindowInsets.statusBars))
 
-                    // Header: título + acciones
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceBetween,
@@ -73,14 +72,14 @@ fun HomeScreen(
                         )
                         Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                             RoundIcon(Icons.Outlined.Search)
-                            RoundIcon(Icons.Outlined.ShoppingCart) // cámbialo por campana si tienes drawable
+                            RoundIcon(Icons.Outlined.ShoppingCart)
                         }
                     }
 
                     Spacer(Modifier.height(12.dp))
 
-                    // Chips categorías
-                    val categories = listOf("Mouse", "Headset", "Smartwatch", "Keyboard")
+
+                    val categories = listOf("Technology", "Books", "Supplies", "Course Materials")
                     var selected by remember { mutableStateOf(0) }
                     LazyRow(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                         items(categories.size) { i ->
@@ -104,7 +103,6 @@ fun HomeScreen(
 
                     Spacer(Modifier.height(16.dp))
 
-                    // Título + Filter
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceBetween,
@@ -123,7 +121,7 @@ fun HomeScreen(
                         modifier = Modifier.fillMaxSize(),
                         verticalArrangement = Arrangement.spacedBy(16.dp),
                         horizontalArrangement = Arrangement.spacedBy(16.dp),
-                        contentPadding = PaddingValues(bottom = 16.dp) // ya no se tapa con la barra
+                        contentPadding = PaddingValues(bottom = 16.dp)
                     ) {
                         items(products) { p -> ProductCard(product = p) }
                     }
